@@ -1,0 +1,45 @@
+<body onload="currentTime(),currentDate()">
+
+<!--Date and time-->
+<div>
+  <h3>Today's date is:</h3>
+  <p id = "displayDate"></p>
+</div>
+<br>
+<div>
+  <h3>The time is:</h3>
+  <p id = "displayTime"></p>
+</div>
+
+ <script>
+	
+function currentDate()
+{	
+	var dateToday = new Date();         //Create a date object (current date)
+	var curMonth = dateToday.getMonth() + 1;   //Get the month of the object
+	var curDay = dateToday.getDate();      //Get the day (1-31) of the object
+	var curYear = dateToday.getFullYear(); //Get the year of the object
+		
+	document.getElementById("displayDate").innerHTML = curMonth + "/" + curDay + "/" + curYear;
+	var refreshDate = setTimeout(function(){currentDate()}, 1000);
+}
+
+function currentTime()
+{
+	
+	
+	var curTime = new Date();              //Create a date object
+	
+	//Get the hours, minutes, and seconds. Place them all in variables
+	var curHour = curTime.getHours();      
+	var curMinute = curTime.getMinutes();
+	var curSecond = curTime.getSeconds();
+		
+		document.getElementById("displayTime").innerHTML = curHour + ":" + curMinute + ":" + curSecond;
+		var refreshTime = setTimeout(function(){currentTime()}, 500);
+	}
+  </script>
+
+<!--Including Javascript includes and scripts-->
+<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
